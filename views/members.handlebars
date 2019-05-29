@@ -1,0 +1,111 @@
+
+  <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="btn btn-warning mt-sm-4" class="navbar-brand" href="/logout">
+          Logout
+        </a>
+      </div>
+  </nav><br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-md-offset-3">
+        <h1 class="text-warning ml-sm-4">Welcome <span class="member-name"></span></h1>
+        <input type="text" val="" class="member-id" style="visibility: hidden">
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <div class="task-container">
+          <h1 class="text-warning">Chores</h1>
+          <div class="table-sm-responsive">
+          <table class="table table-bordered table-dark text-warning ml-2" id="table">
+            <thead>
+              <tr>
+                <th scope="col">Current Tasks</th>
+                <th scope="col">Points for task</th>
+                <th scope="col">Complete task</th>
+                <th scope="col">Delete task</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+               {{#each tasks_data}}
+                {{#unless completed}}
+                  {{> tasks/task-block }}
+                  {{/unless}}
+               {{/each}}
+               
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        <div class="task-container">
+          <h1 class="text-warning">Finished Chores</h1>
+          <div class="table-sm-responsive">
+          <table class="table table-bordered table-dark text-warning ml-2" id="table-complete">
+            <thead>
+              <tr>
+                <th scope="col">Completed Tasks</th>
+                <th scope="col">Points for task</th>
+                <th scope="col">Complete task</th>
+                <th scope="col">Delete task</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+               {{#each tasks_data}}
+                {{#if completed}}
+                  <tr>
+                  <td>{{task}}</td>
+                  <td>{{score}}</td>
+                  <td>Task completed!</td>
+                  <td><button class="delete-task btn btn-danger" data-id="{{id}}">Delete</button></td>
+                  </tr>   
+                {{/if}}
+               {{/each}}
+               
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row mt-5 align-items-sm-start justify-content-center">
+      <div class="add-score col-5-md mb-5 card bg-dark text-warning">
+        <div class="card-body">
+          <h3>Total points</h3>
+          <h1 class="points text-center"></h1>
+          
+        </div>
+      </div>
+
+      <div class="col-7-xs">
+        <div class="add-task-card card bg-dark text-warning ml-sm-5 mb-4">
+          <div class="card-body">
+            <form id="cms">
+              <div class="form-group">
+          
+                <label for="Task">Chore:</label>
+                <textarea placeholder="Add New Chore" class="form-control" rows="3" id="task-body"></textarea>
+                
+                <label for="title">Points:</label>
+                <input placeholder="How many points is this task worth" type="text" class="form-control" id="points">
+                <br />
+                
+                <button id="submit-task" type="submit" class="btn btn-warning submit">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
