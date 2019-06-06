@@ -2,22 +2,33 @@ var db = require("../models");
 
 module.exports = function (app) {
 
-    app.get("/api/tasks", function (req, res) {
+    app.get("/api/tasks/", function (req, res) {
         var query = {};
         if (req.query.user_id) {
             query.UserId = req.query.user_id;
         }
         db.Tasks.findAll({
-            // where: query,
-            // include: [db.Users]
+            where: query.UserId   
+        }).then(function (dbTasks) {
+            res.json(dbTasks);
+        });
+    });
+
+    app.get("/api/test/:id", function (req, res) {
+    
+        var query = {};
+        if (req.query.user_id) {
+            query.UserId = req.query.user_id;
+        } 
+        db.Tasks.findAll({
             where: {
-                UserId: 5
+                UserId:req.user.id 
             }
             
         }).then(function (dbTasks) {
             res.json(dbTasks);
-            console.log(req.params.userId);
         });
+        console.log(query.UserId);
     });
     // Get route for retrieving a single task
     app.get("/api/tasks/:id", function (req, res) {

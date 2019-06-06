@@ -10,6 +10,7 @@ $(document).ready(function() {
       name = data.name;
       $(".member-name").html("<span> " + name + "!" + "</span>");
       userId = data.id
+      console.log(userId)
       $(".member-id").val(userId);
       $(".option-select").text(name);
     });
@@ -40,10 +41,16 @@ $(document).ready(function() {
       }).then
       location.reload();
     }
-  
+    
     function totalScore() {
-      $.get("/api/tasks" , function(data)  {
-       
+      // $.get("/api/tasks/", function(data)  {
+        
+      
+      var id = $(this).data("UserId");
+        $.ajax({
+          method: "GET",
+          url: "/api/test/" + id
+        }).then(function(data) {
         console.log(data);
         for (var i = 0; i < data.length; i++) {
           if (data[i].completed == true) {
