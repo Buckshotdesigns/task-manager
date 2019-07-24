@@ -1,4 +1,4 @@
-# Project 2: Chore Buddy
+# Task Manager
 
 For this project, we have created an app that allows families to create chore lists, display the list of users and their associated chores, update the list by marking chores as they are completed, and then deleting them.
 <p align="center">
