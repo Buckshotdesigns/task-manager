@@ -11,7 +11,7 @@ For this application, we have created an app that allows families to create chor
 You must create an acoount with username and password to get started. Once the user account is created you can log in at any time. Get started by adding a task and assign a point value to it. Once task is completed you can complete task and it awards the points assigned to it. Once you have enough points to achieve your goal you can delete the task and sart over. 
 
 
-## Getting started
+## Installation to local machine
 
 In order to run this app for testing and development purposes, you will need to execute the following commands from the CLI.
 
