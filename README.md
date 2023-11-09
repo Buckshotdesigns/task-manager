@@ -42,4 +42,6 @@ This was a group project for coding bootcamp at Case Western Reserve University 
 
 Tundun, Gaberiel, Daniel, Greg, Bryan
 
+Updated today
+
 
